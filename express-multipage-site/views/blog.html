@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="overlay">
+        <h1 class="title">My Blog</h1>
+        <div class="nav-buttons">
+            <a href="/" class="btn">Home</a>
+            <a href="/about" class="btn">About</a>
+            <a href="/contact" class="btn">Contact</a>
+            <a href="/blog" class="btn">Blog</a>
+        </div>
+
+        <div id="posts" class="posts-container"></div>
+    </div>
+
+    <script>
+        async function loadPosts() {
+            try {
+                const response = await fetch('/api/posts');
+                const posts = await response.json();
+
+                const postsDiv = document.getElementById('posts');
+                postsDiv.innerHTML = '';
+
+                posts.forEach(post => {
+                    const postEl = document.createElement('div');
+                    postEl.className = 'post-card';
+                    postEl.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <p>${post.content}</p>
+                    `;
+                    postsDiv.appendChild(postEl);
+                });
+            } catch (error) {
+                console.error('Error loading posts:', error);
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+</html>

@@ -1,13 +1,21 @@
 {
-  "name": "express-multipage-site",
+  "name": "dariguez_appdev",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PersonaHubs/Mem-bits.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PersonaHubs/Mem-bits/issues"
+  },
+  "homepage": "https://github.com/PersonaHubs/Mem-bits#readme",
   "description": "",
   "dependencies": {
     "express": "^5.2.1"
